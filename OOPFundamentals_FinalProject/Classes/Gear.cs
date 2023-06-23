@@ -8,11 +8,13 @@ namespace OOPFundamentals_FinalProject.Classes
 {
     public class Gear
     {
+        public int Index { get; }
         public string Name { get; }
         public int Power { get; }
 
-        public Gear(string name, int power)
+        public Gear(int index, string name, int power)
         {
+            Index = index;
             Name = name;
             Power = power;
         }

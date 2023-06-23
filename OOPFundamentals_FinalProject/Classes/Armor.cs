@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace OOPFundamentals_FinalProject.Classes
 {
-    public class Armour : Gear
+    public class Armor : Gear
     {
-        public Armour(string name, int power) : base(name, power)
+        public Armor(int index, string name, int power) : base(index, name, power)
         {
 
         }

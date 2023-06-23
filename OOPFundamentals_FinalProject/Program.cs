@@ -3,5 +3,4 @@
 
 using OOPFundamentals_FinalProject.Classes;
 
-
-Game.MainMenu();
+Game.Start();
