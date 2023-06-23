@@ -112,10 +112,24 @@ namespace OOPFundamentals_FinalProject.Classes
 
             Console.WriteLine("Please enter your hero name. (No special characters allowed)");
             string heroName = Console.ReadLine();
-            newHero = new Hero(heroName); // Assign to the static field newHero
+            try
+            {
+                if (heroName != null || heroName.Length >=1)
+                {
+                    newHero = new Hero(heroName);
+                    MainMenu();
+                }
+                else
+                {
+                    throw new Exception("Error");
+                }
+            } catch (Exception e)
+            {
+                e.ToString();
+                Start();
+            }
             Console.WriteLine($"Your selected hero name is {newHero.HeroName}.");
             Console.WriteLine();
-            MainMenu();
         }
 
         public static void MainMenu()
@@ -126,36 +140,39 @@ namespace OOPFundamentals_FinalProject.Classes
             bool runGame = false;
             while (!runGame)
             {
-
-                Hero currentHero = newHero;
-
-                Console.WriteLine($"Choose an option {newHero.HeroName}. Input one of the following numbers:");
-                Console.WriteLine("1. Display Statistics");
-                Console.WriteLine("2. Display Inventory");
-                Console.WriteLine("3. FIGHT!!");
-                Console.WriteLine("4: Exit Game");
-                Console.WriteLine();
-                string options = Console.ReadLine();
-                switch (options)
+                try
                 {
-                    case "1":
-                        currentHero.GetStats();
-                        break;
-                    case "2":
-                        currentHero.GetInventory();
-                        break;
-                    case "3":
-                        Fight.FightText(currentHero, GenerateRandomMonster());
-                        Fight.StartFight(currentHero, GenerateRandomMonster());
-                        break;
-                    case "4":
-                        Environment.Exit(0);
-                        break;
-                    // run error if there is no case match
-                    default:
-                        Console.WriteLine("Invalid choice. Please try again.");
-                        break;
-                }
+                    Hero currentHero = newHero;
+
+                    Console.WriteLine($"Choose an option {newHero.HeroName}. Input one of the following numbers:");
+                    Console.WriteLine("1. Display Statistics");
+                    Console.WriteLine("2. Display Inventory");
+                    Console.WriteLine("3. FIGHT!!");
+                    Console.WriteLine("4: Exit Game");
+                    Console.WriteLine();
+                    string options = Console.ReadLine();
+                    switch (options)
+                    {
+                        case "1":
+                            currentHero.GetStats();
+                            break;
+                        case "2":
+                            currentHero.GetInventory();
+                            break;
+                        case "3":
+                            Fight.FightText(currentHero, GenerateRandomMonster());
+                            Fight.StartFight(currentHero, GenerateRandomMonster());
+                            break;
+                        case "4":
+                            Environment.Exit(0);
+                            break;
+                        // run error if there is no case match
+                        default:
+                            Console.WriteLine("Invalid choice. Please try again.");
+                            break;
+                    }
+                } catch (Exception e) 
+                { Console.WriteLine(e.ToString()); }
             }
         }
         static Game()
