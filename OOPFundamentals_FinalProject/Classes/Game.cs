@@ -86,12 +86,12 @@ namespace OOPFundamentals_FinalProject.Classes
             int randomMonster = random.Next(activeMonsters.Count);
             Monster selectedMonster = activeMonsters.ElementAt(randomMonster);
 
-            // create a new instance of the selected monster with its original health and defence
-            Monster randomMonsterInstance = new Monster(selectedMonster.Name, selectedMonster.Strength,
+            // create a new instance of selected monster with original health and defence
+            Monster newRandomMonster = new Monster(selectedMonster.Name, selectedMonster.Strength,
                 selectedMonster.Defence, selectedMonster.OriginalHealth, selectedMonster.OriginalHealth);
 
             // return the newly randomly created monster
-            return randomMonsterInstance;
+            return newRandomMonster;
         }
 
         public static void Start()
@@ -126,7 +126,7 @@ namespace OOPFundamentals_FinalProject.Classes
             } catch (Exception e)
             {
                 e.ToString();
-                Start();
+                
             }
             Console.WriteLine($"Your selected hero name is {newHero.HeroName}.");
             Console.WriteLine();

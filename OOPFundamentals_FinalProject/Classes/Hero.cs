@@ -40,6 +40,7 @@ namespace OOPFundamentals_FinalProject.Classes
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
+                    Game.Start();
                 }
             }
         }
@@ -91,6 +92,8 @@ namespace OOPFundamentals_FinalProject.Classes
             }
             catch (FormatException)
             {
+                // use format exception when converting string to data type
+                // https://learn.microsoft.com/en-us/dotnet/api/system.formatexception?view=net-7.0
                 Console.WriteLine("Invalid input. Please enter a number.");
             }
         }
