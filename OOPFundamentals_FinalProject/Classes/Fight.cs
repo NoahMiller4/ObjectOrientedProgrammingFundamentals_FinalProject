@@ -55,9 +55,8 @@ namespace OOPFundamentals_FinalProject.Classes
                 hero.CurrentHealth = hero.OriginalHealth;
                 Console.WriteLine("You lost the fight. GAME OVER!");
                 monster.ResetHealth();
-                Game.FightsWon = 0;
-                Game.FightsLost = 0;
-                Game.Start();
+                Game.GamesPlayed++;
+                Game.MainMenu();
             }
             if (monster.CurrentHealth <= 0) // Win
             {
